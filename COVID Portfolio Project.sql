@@ -35,7 +35,7 @@ WHERE
 	location LIKE '%Philippines%'
 ORDER BY
 	location,
-	date;	
+	date	
 
 
 -- Looking at Total Cases vs Population
@@ -53,7 +53,7 @@ WHERE
 	location LIKE '%Philippines%'
 ORDER BY
 	location,
-	date;
+	date
 
 
 -- Looking at countries with highest infection rate compared to population
@@ -70,7 +70,7 @@ GROUP BY
 	location,
 	population
 ORDER BY
-	percent_population_infected DESC;
+	percent_population_infected DESC
 
 
 -- Showing countries with highest death count per population
@@ -86,7 +86,7 @@ WHERE
 GROUP BY 
 	location
 ORDER BY 
-	total_death_count DESC;
+	total_death_count DESC
 
 
 -- LET'S BREAK THINGS DOWN BY CONTINENT
@@ -105,7 +105,7 @@ WHERE
 GROUP BY
 	continent
 ORDER BY
-	total_death_count DESC;
+	total_death_count DESC
 
 
 -- GLOBAL NUMBERS
@@ -121,7 +121,7 @@ WHERE
 	continent IS NOT NULL
 -- GROUP BY date
 ORDER BY
-	1,2;
+	1,2
 
 
 -- Looking at Total population vs Vaccinations
@@ -193,7 +193,7 @@ CREATE TEMPORARY TABLE percent_population_vaccinated (
 	population NUMERIC,
 	new_vaccinations NUMERIC,
 	rolling_people_vaccinated NUMERIC
-);
+)
 
 -- Insert the data into the temporary table
 INSERT INTO percent_population_vaccinated
@@ -209,7 +209,7 @@ FROM
 JOIN
 	covidvaccinations vac ON dea.location = vac.location AND dea.date = vac.date
 WHERE
-	dea.continent IS NOT NULL;
+	dea.continent IS NOT NULL
 
 
 -- Retrieve the results from the temporary table
@@ -217,7 +217,7 @@ SELECT
   *,
   (rolling_people_vaccinated / population) * 100 AS percent_population_vaccinated
 FROM
-  percent_population_vaccinated;
+  percent_population_vaccinated
   
 
 
