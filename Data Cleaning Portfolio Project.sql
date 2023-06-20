@@ -31,7 +31,8 @@ DROP CONSTRAINT
 	nashville_housing_parcel_id_key
 	
 -- Successfully imported the csv file after fixing the errors
--- Errors included sale price data type and cosntraint in parcel id
+-- Errors included sale price data type and constraint in parcel id
+-- Removed the constraint UNIQUE 
 
 
 /*
